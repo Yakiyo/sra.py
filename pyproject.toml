@@ -143,7 +143,7 @@ test = ["coverage"]
 [tool.setuptools]
 # If there are data files included in your packages that need to be
 # installed, specify them here.
-package-data = {"sample" = ["*.dat"]}
+# package-data = {"sample" = ["*.dat"]}
 
 [build-system]
 # These are the assumed default build requirements from pip:
