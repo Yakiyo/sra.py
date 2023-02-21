@@ -4,7 +4,7 @@
 
 import unittest
 
-from sra.simple import add_one
+from sra import add_one
 
 
 class TestSimple(unittest.TestCase):
