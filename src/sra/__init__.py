@@ -1,6 +1,3 @@
-def add_one(number):
-    return number + 1
-
 """
 Base class to interact with the api
 """
