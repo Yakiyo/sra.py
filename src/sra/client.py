@@ -2,10 +2,12 @@ import json
 from requests import get
 from .structs import Endpoint
 
+
 class Client:
     """
     Base class to interact with the api
     """
+
     def __init__(self, key: str = None) -> None:
         self.api_key = key
         self._endpoints = []
@@ -15,7 +17,7 @@ class Client:
         """
         Method to initialize the endpoint cache
         """
-        r = get('https://some-random-api.ml/endpoints?format=json', timeout = 5)
+        r = get("https://some-random-api.ml/endpoints?format=json", timeout=5)
         data = json.loads(r.content)
 
         for categories in data:
@@ -25,4 +27,3 @@ class Client:
 
     def fetch(path: str, query: dict = None) -> dict:
         return {}
-
