@@ -19,9 +19,9 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python }}
-    - name: Install build tool
-      run: pip install build
-    - name: Build project
-      run: python -m build
+    - name: Install and run build tool
+      run: pip install build && python -m build
+    - name: Install project as a package
+      run: pip install .
     - name: Test
       run: python tests/tests.py
