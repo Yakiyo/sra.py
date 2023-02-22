@@ -17,6 +17,7 @@ class Endpoint:
             })
 
     def __str__(self) -> str:
-        return f"""\
-path: {self.path},
-queries: {self.queries}"""
+        return "{" + f"\n\tpath:{self.path}," + f"\n\tqueries: {self.queries}" + "\n}"
+#     f"""\
+# path: {self.path},
+# queries: {self.queries}"""
