@@ -15,4 +15,4 @@ class Endpoint:
             self.queries.append({"key": key, "required": required})
 
     def __str__(self) -> str:
-        return "{" + f"\n\tpath:{self.path}," + f"\n\tqueries: {self.queries}" + "\n}"
+        return "{" + f"\n\tpath: {self.path}," + f"\n\tqueries: {self.queries}" + "\n}"
