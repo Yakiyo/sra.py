@@ -10,10 +10,10 @@ class Client:
 
     def __init__(self, key: str = None) -> None:
         self.api_key = key
-        self._endpoints = []
-        self._loadEndpoints()
+        self.__endpoints = []
+        self.__loadEndpoints()
 
-    def _loadEndpoints(self) -> None:
+    def __loadEndpoints(self) -> None:
         """
         Method to initialize the endpoint cache
         """
@@ -23,20 +23,20 @@ class Client:
         for categories in data:
             category = data[categories]
             for endpoint in category:
-                self._endpoints.append(Endpoint(endpoint))
+                self.__endpoints.append(Endpoint(endpoint))
 
     def fetch(self, path: str, query: dict = None) -> dict | bytes:
         """
         Fetch from an endpoint
         """
-        endpoint = next((x for x in self._endpoints if x.path == path), None)
+        endpoint = next((x for x in self.__endpoints if x.path == path), None)
         if endpoint is None:
             raise 'Invalid endpoint provided'
         
         if query is not None and self.api_key is not None:
             query['key'] = self.api_key
         
-        self._validate_request(endpoint, query)
+        self.__validate_request(endpoint, query)
         try:
             res = get('https://some-random-api.ml/' + path, params = query, timeout = 5)
             if res.ok is False:
@@ -57,6 +57,6 @@ class Client:
         except:
             raise
 
-    def _validate_request(self, endpoint: Endpoint, query: dict):
+    def __validate_request(self, endpoint: Endpoint, query: dict):
         pass
 
