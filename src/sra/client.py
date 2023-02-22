@@ -23,6 +23,9 @@ class Client:
             for endpoint in category:
                 self._endpoints.append(Endpoint(endpoint))
 
-    def fetch(path: str, query: dict = None) -> dict:
-        return {}
+    def fetch(self, path: str, query: dict = None) -> dict:
+        ep = next((x for x in self._endpoints if x.path == path), None)
+        if ep is None:
+            raise 'Invalid endpoint provided'
+        return ep
 
