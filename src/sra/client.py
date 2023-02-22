@@ -1,4 +1,4 @@
-import json
+from __future__ import annotations
 from requests import get
 from .structs import Endpoint
 
@@ -18,7 +18,7 @@ class Client:
         Method to initialize the endpoint cache
         """
         r = get("https://some-random-api.ml/endpoints?format=json", timeout=5)
-        data = json.loads(r.content)
+        data = r.json()
 
         for categories in data:
             category = data[categories]
